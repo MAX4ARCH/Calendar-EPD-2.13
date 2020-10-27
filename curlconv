@@ -1,0 +1,14 @@
+#!/bin/bash
+
+url="$1$2"
+
+url_t="$(curl -L $url --silent | grep -Eoi 'src="[^>]+"' | sed 's/src=//g' | sed 's/"//g')"
+
+curl "$url_t" -o /run/user/1000/test.jpg --silent
+
+convert /run/user/1000/test.jpg -resize 250x -gravity center -extent x$3 /run/user/1000/1.png
+convert gradient.png /run/user/1000/1.png -compose dstover -composite /run/user/1000/2.png
+convert /run/user/1000/2.png -remap 2in13-v2.bmp -dither FloydSteinberg -define dither:diffusion-amount=85% /run/user/1000/output.bmp
+
+rm /run/user/1000/*.png
+rm /run/user/1000/*.jpg
