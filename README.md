@@ -1,5 +1,5 @@
 # Calendar-EPD-2.13
-Google Calendar, Clock, Weather and quotes for waveshare e-ink 2.13 V2
+Google Calendar, Clock, Weather and quotes for waveshare e-ink 2.13 V2 and Raspberry Pi
 
 Work in progress > I would be glad if someone can join me, and clean the code...)
 
